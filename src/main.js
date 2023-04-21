@@ -1,11 +1,28 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 import App from './App.vue'
-
-import './assets/main.css'
-
+import PrimeVue from "primevue/config";
+import 'primeflex/primeflex.css';
+import 'primevue/resources/themes/md-light-indigo/theme.css';
+import 'primevue/resources/primevue.min.css';
+import 'primeicons/primeicons.css';
+import 'primeicons/primeicons.css';
+import Avatar from "primevue/avatar";
+import Sidebar from "primevue/sidebar";
+import Button from "primevue/button";
+import Card from "primevue/card";
+import Toolbar from "primevue/toolbar";
+import Menubar from "primevue/menubar";
+import Menu from "primevue/menu";
 const app = createApp(App)
 
-app.use(createPinia())
 
-app.mount('#app')
+app
+    .use(PrimeVue,{ripple: true})
+    .component('pv-card',Card)
+    .component('pv-avatar',Avatar)
+    .component('pv-sidebar',Sidebar)
+    .component('pv-button',Button)
+    .component('pv-toolbar',Toolbar)
+    .component('pv-menubar',Menubar)
+    .component('pv-menu',Menu)
+    .mount('#app')

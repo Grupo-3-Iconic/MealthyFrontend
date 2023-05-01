@@ -1,5 +1,4 @@
 <template>
-  <side-menu/>
 </template>
 
 <script setup>

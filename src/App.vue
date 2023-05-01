@@ -1,4 +1,5 @@
 <template>
+<<<<<<< Updated upstream
 <div class="w-full">
   <pv-menubar class="sticky bg-primary " >
     <template #start>
@@ -6,6 +7,10 @@
     </template>
   </pv-menubar>
 </div>
+=======
+  <side-menu/>
+  <h1>HOLA</h1>
+>>>>>>> Stashed changes
 </template>
 
 <script setup>

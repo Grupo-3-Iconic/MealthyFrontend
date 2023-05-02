@@ -1,17 +1,10 @@
 <template>
-<div class="w-full">
-  <pv-menubar class="sticky bg-primary " >
-    <template #start>
-      <p>hola</p>
-    </template>
-  </pv-menubar>
-</div>
+  <side-menu/>
 </template>
 
 <script setup>
+import SideMenu from "./components/side-menu.component.vue";
 </script>
-
 <style scoped>
-
 
 </style>

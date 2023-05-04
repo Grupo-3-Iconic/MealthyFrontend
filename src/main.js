@@ -7,7 +7,7 @@ import 'primeicons/primeicons.css';
 import './assets/theme-base/mytheme/theme.css'
 import 'primeicons/primeicons.css';
 import Avatar from "primevue/avatar";
-import Sidebar from "primevue/sidebar";
+import Sidebar from 'primevue/sidebar';
 import Button from "primevue/button";
 import Card from "primevue/card";
 import Toolbar from "primevue/toolbar";

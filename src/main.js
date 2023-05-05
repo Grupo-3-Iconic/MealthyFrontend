@@ -13,6 +13,7 @@ import Card from "primevue/card";
 import Toolbar from "primevue/toolbar";
 import Menubar from "primevue/menubar";
 import Menu from "primevue/menu";
+import Password from "primevue/password";
 const app = createApp(App)
 
 
@@ -25,4 +26,5 @@ app
     .component('pv-toolbar',Toolbar)
     .component('pv-menubar',Menubar)
     .component('pv-menu',Menu)
+    .component('pv-password',Password)
     .mount('#app')

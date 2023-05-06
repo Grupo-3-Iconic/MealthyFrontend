@@ -1,11 +1,26 @@
 <template>
   <div class="pantry-content">
-    <form>
-      <pv-input-text placeholder="Nombre de insumo" type="text" v-model="newItemName" required></pv-input-text> &nbsp
-      <pv-input-text placeholder="Cantidad" type="number" v-model="newItemQuantity" required></pv-input-text> &nbsp
-      <pv-input-text placeholder="Unidad" type="text" v-model="newItemUnit" required></pv-input-text> &nbsp
-      <pv-button label="Save" icon="pi pi-check" severity="success" @click="onAddItem" aria-label="add supply"/>
-    </form>
+    <div class="card flex flex-column md:flex-row gap-3">
+        <div class="p-inputgroup flex-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-thumbs-up"></i>
+            </span>
+            <pv-input-text placeholder="Nombre de insumo" type="text" v-model="newItemName" required></pv-input-text>
+        </div>
+        <div class="p-inputgroup flex-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-shopping-bag"></i>
+            </span>
+            <pv-input-text placeholder="Cantidad" type="number" v-model="newItemQuantity" required></pv-input-text>
+        </div>
+
+        <div class="p-inputgroup flex-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-question"></i></span>
+            <pv-input-text placeholder="Unidad" type="text" v-model="newItemUnit" required></pv-input-text>
+        </div>
+        <pv-button label="Save" icon="pi pi-check" severity="success" @click="onAddItem" aria-label="add supply"/>
+    </div>
     <pv-data-table :value="items" :paginator="true" :rows="10" class="pantry-table">
         <pv-column field="name" header="Insumo"></pv-column>
         <pv-column  field="quantity" header="Cantidad"></pv-column>
@@ -21,41 +36,42 @@
 </template>
 
 <script>
-  export default {
-    name: 'PantryContent',
-    data() {
-      return {
-        title: 'My Pantry',
-        items: [
-          { name: 'Papas', quantity: 1, unit: 'kg' },
-          { name: 'Zanahoria', quantity: 5, unit: 'kg' },
-          { name: 'Arroz', quantity: 7, unit: 'kg' }
-        ],
-        newItemName: '',
-        newItemQuantity: '',
-        newItemUnit: ''
+export default {
+  data() {
+    return {
+      items: [], 
+      newItemName: '', 
+      newItemQuantity: '', 
+      newItemUnit: '', 
+      editingIndex: null 
+    };
+  },
+  methods: {
+    onAddItem() {
+      if (!this.newItemName || !this.newItemQuantity || !this.newItemUnit) {
+        return;
       }
+      const newItem = {
+        name: this.newItemName, 
+        quantity: this.newItemQuantity, 
+        unit: this.newItemUnit
+      };
+      this.items.push(newItem);
+      this.newItemName = '';
+      this.newItemQuantity = '';
+      this.newItemUnit = '';
     },
-    methods: {
-      onAddItem() {
-        if (this.newItemName && this.newItemQuantity && this.newItemUnit) {
-          this.items.push({
-            name: this.newItemName,
-            quantity: this.newItemQuantity,
-            unit: this.newItemUnit
-          })
-          this.newItemName = ''
-          this.newItemQuantity = ''
-          this.newItemUnit = ''
-        }
-      },
-      onRemoveItem(index) {
-        this.items.splice(index, 1)
-      }
+    onRemoveItem(index) {
+      this.items.splice(index, 1);
+    },
+    onEditItem(index) {
+
     }
   }
-</script>
+};
 
+
+</script>
 <style scoped>
 .pantry-content {
   display: flex;
@@ -68,8 +84,7 @@
   border-collapse: collapse;
   margin-top: 20px;
 }
-.pantry-table th,
-.pantry-table td {
+.pantry-table th,.pantry-table td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;

@@ -74,7 +74,6 @@ export default {
   }
 };
 
-
 </script>
 <style scoped>
 .pantry-content {
@@ -83,13 +82,11 @@ export default {
   align-items: center;
   padding: 20px;
 }
-
 .pantry-table {
   width: 80%;
   border-collapse: collapse;
   margin-top: 20px;
 }
-
 .pantry-table th, .pantry-table td {
   padding: 8px;
   text-align: center;

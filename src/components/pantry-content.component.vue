@@ -50,7 +50,23 @@
         newItemUnit: ''
       }
     },
-    
+    methods: {
+      onAddItem() {
+        if (this.newItemName && this.newItemQuantity && this.newItemUnit) {
+          this.items.push({
+            name: this.newItemName,
+            quantity: this.newItemQuantity,
+            unit: this.newItemUnit
+          })
+          this.newItemName = ''
+          this.newItemQuantity = ''
+          this.newItemUnit = ''
+        }
+      },
+      onRemoveItem(index) {
+        this.items.splice(index, 1)
+      }
+    }
   }
 </script>
 

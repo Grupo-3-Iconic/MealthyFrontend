@@ -1,19 +1,16 @@
 <template>
   <div class="pantry-content">
-    <form @submit.prevent="onAddItem">
-      <label for="item-name"> Insumo </label>
-      <input id="item-name" type="text" v-model="newItemName" required>
-      <label for="item-quantity"> Cantidad </label>
-      <input id="item-quantity" type="number" v-model="newItemQuantity" required>
-      <label for="item-unit"> Unidad </label>
-      <input id="item-unit" type="text" v-model="newItemUnit" required> &nbsp
+    <form>
+      <pv-input-text placeholder="Nombre de insumo" type="text" v-model="newItemName" required></pv-input-text> &nbsp
+      <pv-input-text placeholder="Cantidad" type="number" v-model="newItemQuantity" required></pv-input-text> &nbsp
+      <pv-input-text placeholder="Unidad" type="text" v-model="newItemUnit" required></pv-input-text> &nbsp
       <pv-button label="Save" icon="pi pi-check" severity="success" @click="onAddItem" aria-label="add supply"/>
     </form>
     <pv-data-table :value="items" :paginator="true" :rows="10" class="pantry-table">
         <pv-column field="name" header="Insumo"></pv-column>
         <pv-column  field="quantity" header="Cantidad"></pv-column>
         <pv-column  field="unit" header="Unidad"></pv-column>
-        <pv-column >
+        <pv-column header="Actions">
             <template #body="slotProps">
               <pv-button icon="pi pi-pencil edit-item-button" severity="warning" @click="onEditItem(slotProps.rowIndex)" aria-label="edit item"/> &nbsp
               <pv-button icon="pi pi-trash delete-item-button" severity="danger" @click="onRemoveItem(slotProps.rowIndex)" aria-label="delete item"/> &nbsp

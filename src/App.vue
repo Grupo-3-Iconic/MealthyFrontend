@@ -1,6 +1,5 @@
 <template>
-    <side-menu/>
-    <side-bar/>
+
 </template>
 
 <script setup>

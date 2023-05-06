@@ -49,10 +49,10 @@
                 <pv-button style="color:black; font-size:12px;" class="flex-auto" icon="pi pi-angle-left" label="Back" text/>
             </div>
             <div style="padding-left: 150px; display: flex; flex-direction: row">
-                <img src="../../assets/images/plato1.png" style="width: 250px; height: 250px;"/>
+                <img alt="plato1" src="../../assets/images/plato1.png" style="width: 250px; height: 250px;"/>
                 <div style="padding-left: 100px;">
                     <div>
-                        <h2 style="font-family: Lato;">Instrucciones</h2>
+                        <h2>Instrucciones</h2>
                     </div>
                     <div>
                         <ol>
@@ -90,13 +90,13 @@
             </div>
             <div style="display: flex; padding-top:25px; flex-wrap: wrap; padding-left: 150px;">
                 <div style="flex: 1;">
-                    <img src="../../assets/images/plato2.png" style="width: 250px; height: 200px;"/>
+                    <img alt="plato2" src="../../assets/images/plato2.png" style="width: 250px; height: 200px;"/>
                 </div>
                 <div style="flex: 1;">
-                    <img src="../../assets/images/plato3.png" style="width: 250px; height: 200px;"/>
+                    <img alt="plato3" src="../../assets/images/plato3.png" style="width: 250px; height: 200px;"/>
                 </div>
                 <div style="flex: 1;">
-                    <img src="../../assets/images/plato4.png" style="width: 250px; height: 200px;"/>
+                    <img alt="plato4" src="../../assets/images/plato4.png" style="width: 250px; height: 200px;"/>
                 </div>
             </div>
         </div>

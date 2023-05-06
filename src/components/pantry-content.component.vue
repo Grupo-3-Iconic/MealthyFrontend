@@ -6,8 +6,8 @@
       <label for="item-quantity"> Cantidad </label>
       <input id="item-quantity" type="number" v-model="newItemQuantity" required>
       <label for="item-unit"> Unidad </label>
-      <input id="item-unit" type="text" v-model="newItemUnit" required>
-      <i class="pi pi-plus add-item-button" @click="onAddItem"></i>
+      <input id="item-unit" type="text" v-model="newItemUnit" required> &nbsp
+      <pv-button label="Save" icon="pi pi-check" severity="success" @click="onAddItem" aria-label="add supply"/>
     </form>
     <pv-data-table :value="items" :paginator="true" :rows="10" class="pantry-table">
         <pv-column field="name" header="Insumo"></pv-column>
@@ -15,7 +15,8 @@
         <pv-column  field="unit" header="Unidad"></pv-column>
         <pv-column >
             <template #body="slotProps">
-            <i class="pi pi-trash delete-item-button" @click="onRemoveItem(slotProps.rowIndex)"></i>
+              <pv-button icon="pi pi-pencil edit-item-button" severity="warning" @click="onEditItem(slotProps.rowIndex)" aria-label="edit item"/> &nbsp
+              <pv-button icon="pi pi-trash delete-item-button" severity="danger" @click="onRemoveItem(slotProps.rowIndex)" aria-label="delete item"/> &nbsp
             </template>
         </pv-column>
     </pv-data-table>

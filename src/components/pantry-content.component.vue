@@ -9,26 +9,16 @@
       <input id="item-unit" type="text" v-model="newItemUnit" required>
       <i class="pi pi-plus add-item-button" @click="onAddItem"></i>
     </form>
-    <table class="pantry-table">
-      <thead>
-        <tr>
-          <th>Insumo</th>
-          <th>Cantidad</th>
-          <th>Unidad</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in items" :key="index" class="pantry-item">
-          <td>{{ item.name }}</td>
-          <td>{{ item.quantity }}</td>
-          <td>{{ item.unit }}</td>
-          <td>
-            <i class="pi pi-trash delete-item-button" @click="onRemoveItem(index)"></i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <pv-data-table :value="items" :paginator="true" :rows="10" class="pantry-table">
+        <pv-column field="name" header="Insumo"></pv-column>
+        <pv-column  field="quantity" header="Cantidad"></pv-column>
+        <pv-column  field="unit" header="Unidad"></pv-column>
+        <pv-column >
+            <template #body="slotProps">
+            <i class="pi pi-trash delete-item-button" @click="onRemoveItem(slotProps.rowIndex)"></i>
+            </template>
+        </pv-column>
+    </pv-data-table>
   </div>
 </template>
 

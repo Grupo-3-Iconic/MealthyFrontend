@@ -15,6 +15,7 @@ import Menubar from "primevue/menubar";
 import Menu from "primevue/menu";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import InputText from 'primevue/inputtext';
 const app = createApp(App)
 
 
@@ -29,4 +30,5 @@ app
     .component('pv-menu',Menu)
     .component('pv-data-table', DataTable)
     .component('pv-column', Column)
+    .component('pv-input-text', InputText)
     .mount('#app')

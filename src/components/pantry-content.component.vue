@@ -22,9 +22,7 @@
         <tr v-for="(item, index) in items" :key="index" class="pantry-item">
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
-          <td>
-            <input type="text" v-model="item.unit">
-          </td>
+          <td>{{ item.unit }}</td>
           <td>
             <i class="pi pi-trash delete-item-button" @click="onRemoveItem(index)"></i>
           </td>

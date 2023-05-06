@@ -18,7 +18,7 @@
                         <div class="formgrid grid">
                             <div class="field col">
                                 <label for="firstname2">Genre</label>
-                                <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="eje. female">
+                                <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="ej. female">
                             </div>
                             <div class="field col">
                                 <label for="lastname2">Birthday</label>
@@ -95,8 +95,8 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%
-
+    height: 100%;
 }
+
 
 </style>

@@ -21,7 +21,7 @@
         </div>
         <pv-button label="Save" icon="pi pi-check" severity="success" @click="onAddItem" aria-label="add supply"/>
     </div>
-    <pv-data-table :value="items" :paginator="true" :rows="10" class="pantry-table">
+    <pv-data-table :value="items" paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[5, 10, 15]" class="pantry-table">
         <pv-column field="name" header="Insumo"></pv-column>
         <pv-column  field="quantity" header="Cantidad"></pv-column>
         <pv-column  field="unit" header="Unidad"></pv-column>
@@ -39,7 +39,11 @@
 export default {
   data() {
     return {
-      items: [], 
+      items: [
+        { name: 'Papas', quantity: 1, unit: 'kg' },
+        { name: 'Zanahoria', quantity: 5, unit: 'kg' },
+        { name: 'Arroz', quantity: 7, unit: 'kg' }
+      ], 
       newItemName: '', 
       newItemQuantity: '', 
       newItemUnit: '', 
@@ -79,14 +83,16 @@ export default {
   align-items: center;
   padding: 20px;
 }
+
 .pantry-table {
   width: 80%;
   border-collapse: collapse;
   margin-top: 20px;
 }
-.pantry-table th,.pantry-table td {
+
+.pantry-table th, .pantry-table td {
   padding: 8px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 </style>

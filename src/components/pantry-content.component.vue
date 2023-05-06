@@ -35,6 +35,23 @@
 </template>
 
 <script>
+  export default {
+    name: 'PantryContent',
+    data() {
+      return {
+        title: 'My Pantry',
+        items: [
+          { name: 'Papas', quantity: 1, unit: 'kg' },
+          { name: 'Zanahoria', quantity: 5, unit: 'kg' },
+          { name: 'Arroz', quantity: 7, unit: 'kg' }
+        ],
+        newItemName: '',
+        newItemQuantity: '',
+        newItemUnit: ''
+      }
+    },
+    
+  }
 </script>
 
 <style scoped>

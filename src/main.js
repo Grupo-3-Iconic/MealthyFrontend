@@ -13,6 +13,8 @@ import Card from "primevue/card";
 import Toolbar from "primevue/toolbar";
 import Menubar from "primevue/menubar";
 import Menu from "primevue/menu";
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 const app = createApp(App)
 
 
@@ -25,4 +27,6 @@ app
     .component('pv-toolbar',Toolbar)
     .component('pv-menubar',Menubar)
     .component('pv-menu',Menu)
+    .component('pv-data-table', DataTable)
+    .component('pv-column', Column)
     .mount('#app')

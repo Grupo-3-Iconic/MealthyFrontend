@@ -71,4 +71,66 @@
 </script>
 
 <style scoped>
+.pantry-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.pantry-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pantry-table th,
+.pantry-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+input {
+  padding: 5px;
+  margin-right: 10px;
+}
+.add-item-button {
+  background-color: #28a745; /* verde */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.add-item-button:hover {
+  background-color: #218838; /* verde más oscuro */
+}
+
+.delete-item-button {
+  background-color: #dc3545; /* rojo */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-item-button:hover {
+  background-color: #c82333; /* rojo más oscuro */
+}
 </style>

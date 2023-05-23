@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import {router} from './router'
 import PrimeVue from "primevue/config";
+
 import 'primeflex/primeflex.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
@@ -19,6 +21,7 @@ const app = createApp(App)
 
 app
     .use(PrimeVue,{ripple: true})
+    .use(router)
     .component('pv-card',Card)
     .component('pv-avatar',Avatar)
     .component('pv-sidebar',Sidebar)
@@ -28,3 +31,4 @@ app
     .component('pv-menu',Menu)
     .component('pv-password',Password)
     .mount('#app')
+

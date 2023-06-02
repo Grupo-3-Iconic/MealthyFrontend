@@ -1,10 +1,10 @@
-<template>
-  <side-menu/>
-</template>
-
 <script setup>
-import SideMenu from "./components/side-menu.component.vue";
+import ToolbarComponent from './components/toolbar.component.vue';
 </script>
-<style scoped>
 
+<template>
+  <ToolbarComponent/>
+  <RouterView />
+</template>
+<style scoped>
 </style>

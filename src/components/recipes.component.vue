@@ -1,16 +1,32 @@
 <template>
-  <div class="row">
-    <div v-for="recipe in recipes" :key="recipe.id" class="col">
-      <pv-card>
-        <template #header>
-          <img :src="recipe.photoUrl" alt="Recipe Photo" class="recipe-image">
+  <div>
+    <div class="recipes-toolbar">
+      <pv-toolbar style="max-height: 80px;">
+        <template #start>
+          <h1>Recipes</h1>
         </template>
-        <template #title>{{ recipe.title }}</template>
-        <template #content>
-          <p>{{ recipe.description }}</p>
-          <pv-button @click="viewRecipe(recipe.id)">Ver más</pv-button>
+        <template #end>
+          <span class="p-input-icon-left">
+            <i class="pi pi-search" />
+            <pv-input-text v-model="filters['global'].value" placeholder="Buscar" @input="search" />
+          </span>
         </template>
-      </pv-card>
+      </pv-toolbar>
+      <pv-divider />
+    </div>
+    <div class="row">
+      <div v-for="recipe in filteredRecipes" :key="recipe.id" class="col">
+        <pv-card>
+          <template #header>
+            <img :src="recipe.photoUrl" alt="Recipe Photo" class="recipe-image">
+          </template>
+          <template #title>{{ recipe.title }}</template>
+          <template #content>
+            <p>{{ recipe.description }}</p>
+            <pv-button @click="viewRecipe(recipe.id)">Ver más</pv-button>
+          </template>
+        </pv-card>
+      </div>
     </div>
   </div>
 </template>
@@ -23,7 +39,13 @@ export default {
   data() {
     return {
       recipes: [],
-      recipeService: new RecipeApiService()
+      filteredRecipes: [],
+      recipeService: new RecipeApiService(),
+      filters: {
+        global: {
+          value: null,
+        }
+      }
     };
   },
   created() {
@@ -34,10 +56,17 @@ export default {
       this.recipeService.getAll()
         .then(response => {
           this.recipes = response.data;
+          this.filteredRecipes = response.data;
         })
         .catch(error => {
           console.error('Error fetching recipes:', error);
         });
+    },
+    search() {
+      const searchValue = this.filters['global'].value;
+      this.filteredRecipes = searchValue
+        ? this.recipes.filter(recipe => recipe.title.toLowerCase().includes(searchValue.toLowerCase()) || recipe.description.toLowerCase().includes(searchValue.toLowerCase()))
+        : this.recipes;
     },
     viewRecipe(id) {
       this.$router.push({ name: 'recipe-details', params: { id } });

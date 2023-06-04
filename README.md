@@ -28,7 +28,7 @@ npm run dev
 npm run build
 ```
 
-### Run the server
+### Run server
 
 ```sh
 json-server --watch pantry-recipes.json --routes routes.json

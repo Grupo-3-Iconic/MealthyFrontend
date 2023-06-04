@@ -1,4 +1,4 @@
-# vue-project
+# Mealthy
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -28,7 +28,7 @@ npm run dev
 npm run build
 ```
 
-### Run Servers
+### Run server
 
 ```sh
 json-server --watch pantry-recipes.json --routes routes.json

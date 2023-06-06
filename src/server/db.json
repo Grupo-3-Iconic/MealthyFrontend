@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "manzana",
+      "category": "Fruta",
+      "price": 6.5,
+      "unit": "kilogramo",
+      "quantity": 7,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 2,
+      "name": "pera",
+      "category": "Fruta",
+      "price": 5.4,
+      "unit": "kilogramo",
+      "quantity": 10,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 3,
+      "name": "pimiento",
+      "category": "Verdura",
+      "price": 6,
+      "unit": "Kilogramo",
+      "quantity": 8,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 4,
+      "name": "apio",
+      "category": "Verdura",
+      "price": 7.5,
+      "unit": "kilogramo",
+      "quantity": 10,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 5,
+      "name": "Pepsi",
+      "category": "bebida",
+      "price": "5",
+      "unit": "unidad",
+      "quantity": "12",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 6,
+      "name": "Inka Kola",
+      "category": "bebida",
+      "price": "5",
+      "unit": "unidad",
+      "quantity": "12",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 7,
+      "name": "Azúcar",
+      "category": "producto",
+      "price": "5",
+      "unit": "Kilogramo",
+      "quantity": "20",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 8,
+      "name": "Arroz",
+      "category": "Producto",
+      "price": "4",
+      "unit": "Kilogramo",
+      "quantity": "50",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    }
+  ]
+}

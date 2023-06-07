@@ -8,6 +8,3 @@ import ToolbarComponent from './components/toolbar.component.vue';
 </template>
 <style scoped>
 </style>
-
-
-

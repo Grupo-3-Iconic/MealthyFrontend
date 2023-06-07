@@ -25,27 +25,22 @@
 
 <script>
 export default {
-    name: 'ToolbarComponent',
+    name: "toolbar-store.component.vue",
     data() {
         return {
             drawer: false,
             items: [
-                { label: "Recipes", to: "recipes" },
-                { label: "Pantry", to: "pantry" },
-                { label: "Market", to: "market" },
-                { label: "Settings", to: "settings" }
+                { label: "Products", to: "products" },
+                { label: "Settings", to: "settings" },
+                { label: "Home", to: "join-up" }
             ],
         };
     },
     methods: {
         getIconClass(label) {
             switch (label) {
-                case "Recipes":
+                case "Products":
                     return "pi pi-book";
-                case "Pantry":
-                    return "pi pi-th-large";
-                case "Market":
-                    return "pi pi-shopping-cart";
                 case "Settings":
                     return "pi pi-user-edit";
                 default:
@@ -53,8 +48,9 @@ export default {
             }
         }
     }
-};
+}
 </script>
 
 <style scoped>
+
 </style>

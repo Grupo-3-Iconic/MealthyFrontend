@@ -1,4 +1,5 @@
 <template>
+    <toolbar-store-component/>
     <div class="product-table  p-d-flex">
 
         <div class="products-toolbar p-d-flex p-ai-center">
@@ -238,10 +239,12 @@
 <script>
 import { FilterMatchMode } from "primevue/api";
 import {ProductsApiService} from "@/services/products-api.service";
+import ToolbarStoreComponent from "@/components/toolbar-store.component.vue";
 
 
 export default {
     name: 'product-list.component.vue',
+    components: {ToolbarStoreComponent},
     data() {
         return {
 

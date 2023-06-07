@@ -1,3 +1,4 @@
+
 <template>
     <pv-toast/>
     <header>
@@ -20,41 +21,35 @@
             </template>
         </pv-toolbar>
     </header>
-    <pv-sidebar v-model:visible="drawer"></pv-sidebar>
 </template>
-
 <script>
+
 export default {
-    name: 'ToolbarComponent',
+    name: "toolbar-join-up.component.vue",
     data() {
         return {
             drawer: false,
             items: [
-                { label: "Recipes", to: "recipes" },
-                { label: "Pantry", to: "pantry" },
-                { label: "Market", to: "market" },
-                { label: "Settings", to: "settings" }
+                { label: "Home", to: "join-up" },
+                { label: "Login", to: "login-beginner" },
             ],
         };
     },
     methods: {
         getIconClass(label) {
             switch (label) {
-                case "Recipes":
+                case "Home":
                     return "pi pi-book";
-                case "Pantry":
-                    return "pi pi-th-large";
-                case "Market":
-                    return "pi pi-shopping-cart";
-                case "Settings":
+                case "Login":
                     return "pi pi-user-edit";
                 default:
                     return "";
             }
         }
     }
-};
+}
 </script>
 
 <style scoped>
+
 </style>

@@ -7,10 +7,6 @@
         </pv-button>
         <pv-button label="Mealthy" class="p-button-lg my-3"/>
       </template>
-      <template #end >
-        <pv-button class="mx-2 p-button-lg" label="Home" />
-        <pv-button class="p-button-lg" label="About Us"/>
-      </template>
     </pv-menubar>
   </div>
 </template>

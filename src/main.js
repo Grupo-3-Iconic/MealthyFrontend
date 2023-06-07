@@ -40,23 +40,3 @@ app.use(router)
 
 // Toast Service
 app.use(ToastService);
-
-// PrimeVue Configuration
-app.use(PrimeVue, { ripple: true });
-app.component("pv-data-table", DataTable);
-app.component("pv-column", Column);
-app.component("pv-toolbar", Toolbar);
-app.component("pv-input-text", InputText);
-app.component("pv-textarea", Textarea);
-app.component("pv-button", Button);
-app.component("pv-row", Row);
-app.component("pv-sidebar", Sidebar);
-app.component("pv-menu", Menu);
-app.component("pv-dialog", Dialog);
-app.component("pv-toast", Toast);
-app.component("pv-dropdown", Dropdown);
-app.component("pv-tag", Tag);
-app.component("pv-card", Card);
-app.component("pv-divider", Divider);
-app.mount('#app')
-

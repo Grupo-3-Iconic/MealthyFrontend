@@ -11,7 +11,7 @@
       <h3>Estas tiendas están cerca de ti y tienen disponibles los ingredientes que necesitas</h3>
     </div>
     <div class="card-container">
-      <Card v-for="storeResult in storeResults" :key="storeResult.id" class="card-item">
+      <pv-card v-for="storeResult in storeResults" :key="storeResult.id" class="card-item">
         <div class="card-content">
           <img :src="storeResult.photoUrl" alt="Imagen de la tienda {{storeResult.name}}" class="image" />
           <div class="store-info">
@@ -22,7 +22,7 @@
             <button class="ver-button">Ver</button>
           </div>
         </div>
-      </Card>
+      </pv-card>
     </div>
   </div>
 </template>

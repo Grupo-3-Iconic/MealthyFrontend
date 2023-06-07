@@ -1,4 +1,4 @@
-import http from '../core/services/http-common';
+import http from '../core/http-common';
 
 export class ProductsApiService{
     getAll() {

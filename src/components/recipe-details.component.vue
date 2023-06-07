@@ -1,4 +1,5 @@
 <template>
+    <ToolbarComponent/>
   <div v-if="recipe" class="col">
     <pv-card>
       <template #title>
@@ -43,9 +44,11 @@
   
 <script>
 import { RecipeApiService } from '@/services/recipe-api.service';
+import ToolbarComponent from "@/components/toolbar.component.vue";
   
 export default {
   name: 'RecipeDetailsComponent',
+    components: {ToolbarComponent},
   data() {
     return {
       recipe: null,

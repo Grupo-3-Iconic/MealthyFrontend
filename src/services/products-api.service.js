@@ -19,7 +19,11 @@ export class ProductsApiService{
         return http.delete(`/products/${id}`);
     }
     findByName(name) {
-        return http.get(`/products?name=${name}`);
+        return http.get('/products', {
+            params: {
+                name: name
+            }
+        });
     }
 }
 

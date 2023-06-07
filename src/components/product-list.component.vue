@@ -43,9 +43,9 @@
                 <pv-column field="price" header="Price" :sortable="true" style="min-width: 8rem; background-color: #f9beb1"></pv-column>
                 <pv-column field="unit" header="Unit" :sortable="true" style="min-width: 8rem"></pv-column>
                 <pv-column field="quantity" header="Quantity" :sortable="true" style="min-width: 8rem;background-color: #f9beb1"></pv-column>
-                <pv-column header="Photo">
-                    <template #body="{photoUrl}">
-                        <img :src="photoUrl" style="width: 100%; height: auto; min-width: 8rem">
+                <pv-column field="photoUrl" header="Photo">
+                    <template #body="slotProps">
+                        <img :src="slotProps.data.photoUrl" alt="Photo" style="width: 80px; height: 70px;">
                     </template>
                 </pv-column>
                 <pv-column :exportable="false" style="min-width: 8rem;background-color: #f9beb1">

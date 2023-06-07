@@ -1,0 +1,145 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "manzana",
+      "category": "Fruta",
+      "price": 6.5,
+      "unit": "kilogramo",
+      "quantity": 7.7,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 2,
+      "name": "pera",
+      "category": "Fruta",
+      "price":5.4,
+      "unit": "kilogramo",
+      "quantity": 10,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 3,
+      "name": "pimiento",
+      "category": "Verdura",
+      "price": 6,
+      "unit": "Kilogramo",
+      "quantity": 8,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 4,
+      "name": "apio",
+      "category": "Verdura",
+      "price": 7.5,
+      "unit": "kilogramo",
+      "quantity": 10,
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 5,
+      "name": "Pepsi",
+      "category": "bebida",
+      "price": "5",
+      "unit": "unidad",
+      "quantity": "12",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 6,
+      "name": "Inka Kola",
+      "category": "bebida",
+      "price": "5",
+      "unit": "unidad",
+      "quantity": "12",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 7,
+      "name": "Azúcar",
+      "category": "producto",
+      "price": "5",
+      "unit": "Kilogramo",
+      "quantity": "20",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    },
+    {
+      "id": 8,
+      "name": "Arroz",
+      "category": "Producto",
+      "price": "4",
+      "unit": "Kilogramo",
+      "quantity": "100",
+      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
+    }
+  ],
+  "stores": [
+    {
+      "id":1,
+      "name": "Tiendita de Don Pepe",
+      "description": "Acá ahorrarás para comprar más!!!",
+      "product": [
+        {
+          "productId": 4
+        },
+        {
+          "productId": 2
+        },
+        {
+          "productId": 5
+        },
+        {
+          "productId": 1
+        },
+        {
+          "productId": 3
+        },
+        {
+          "productId": 6
+        }
+
+      ],
+      "photoUrl": "https://imgmedia.larepublica.pe/1200x660/larepublica/original/2023/04/28/644c83fc23c5a8277439ea84.jpg"
+    },
+    {
+      "id":2,
+      "name": "Tienda Menos",
+      "description": "¡Los mejores precios siempre!",
+      "product": [
+        {
+          "productId": 4
+        },
+        {
+          "productId": 2
+        },
+        {
+          "productId": 1
+        }
+      ],
+      "photoUrl": "https://larepublica.cronosmedia.glr.pe/original/2022/08/02/62e975080f03fa074b303ab9.jpg"
+    },
+    {
+      "id":3,
+      "name": "Tambo",
+      "description": "En una Lima que busca dejar de ser gris, la nueva ESQUINA MORADA",
+      "product": [
+        {
+          "productId": 4
+        },
+        {
+          "productId": 2
+        },
+        {
+          "productId": 1
+        },
+        {
+          "productId": 5
+        },
+        {
+          "productId": 7
+        }
+      ],
+      "photoUrl": "https://elcomercio.pe/resizer/8LihI-JJ-JZ8FiOY_wkGjNFNeDk=/1200x1200/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/6EKJBYQCMRFOHKZSSMJIK53LJQ.jpg"
+    }
+  ]
+}

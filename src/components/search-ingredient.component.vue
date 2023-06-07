@@ -30,7 +30,6 @@
 <script>
 import {ProductApiService} from "../services/product-api.service";
 import {StoreApiService} from "../services/store-api.service";
-import Card from "primevue/card";
 export default{
   name:'SearchIngredientComponent',
   data(){

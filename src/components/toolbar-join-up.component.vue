@@ -30,8 +30,10 @@ export default {
         return {
             drawer: false,
             items: [
-                { label: "Home", to: "home" },
+                { label: "Home", to: "home},
+                {label: "Register",to:"join-up",
                 { label: "Login", to: "login" },
+
             ],
         };
     },
@@ -39,6 +41,8 @@ export default {
         getIconClass(label) {
             switch (label) {
                 case "Home":
+                    return "pi pi-home";
+                case "Register":
                     return "pi pi-book";
                 case "Login":
                     return "pi pi-user-edit";

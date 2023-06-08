@@ -18,7 +18,9 @@
                     </div>
                     <div class="formgrid grid border-orange-400">
                         <div class="field col">
+                            <router-link to="/mealthy/products">
                             <pv-button type="button" class="text-white text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">submit</pv-button>
+                            </router-link>
                         </div>
                         <div class="field col">
                             <router-link to="/mealthy/join-up">

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mealthy": "file:../.."
+  }
+}

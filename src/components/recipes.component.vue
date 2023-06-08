@@ -1,4 +1,5 @@
 <template>
+    <ToolbarComponent/>
   <div>
     <div class="recipes-toolbar">
       <pv-toolbar style="max-height: 80px;">
@@ -33,9 +34,11 @@
 
 <script>
 import { RecipeApiService } from '@/services/recipe-api.service';
+import ToolbarComponent from "@/components/toolbar.component.vue";
 
 export default {
   name: 'RecipeComponent',
+    components: {ToolbarComponent},
   data() {
     return {
       recipes: [],

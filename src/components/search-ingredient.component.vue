@@ -1,4 +1,5 @@
 <template>
+    <ToolbarComponent/>
   <div class="container">
     <h1>Tienda</h1>
     <div class="search-container">
@@ -11,7 +12,7 @@
       <h3>Estas tiendas están cerca de ti y tienen disponibles los ingredientes que necesitas</h3>
     </div>
     <div class="card-container">
-      <pv-card v-for="storeResult in storeResults" :key="storeResult.id" class="card-item">
+      <Card v-for="storeResult in storeResults" :key="storeResult.id" class="card-item">
         <div class="card-content">
           <img :src="storeResult.photoUrl" alt="Imagen de la tienda {{storeResult.name}}" class="image" />
           <div class="store-info">
@@ -22,22 +23,24 @@
             <button class="ver-button">Ver</button>
           </div>
         </div>
-      </pv-card>
+      </Card>
     </div>
   </div>
 </template>
 
 <script>
-import {ProductApiService} from "../services/product-api.service";
-import {StoreApiService} from "../services/store-api.service";
+import {ProductsApiService} from "@/services/products-api.service";
+import {StoreApiService} from "@/services/store-api.service";
+import ToolbarComponent from "@/components/toolbar.component.vue";
 export default{
   name:'SearchIngredientComponent',
+    components: {ToolbarComponent},
   data(){
     return{
       searchTerm:'',
       product: null,
       storeResults:[],
-      productService: new ProductApiService(),
+      productService: new ProductsApiService(),
       storeService: new StoreApiService()
     };
   },
@@ -57,19 +60,19 @@ export default{
             console.log(error);
           });
     },
-    getStoreByProductId(productId) {
-      this.storeService.getAll()
-          .then(response => {
-            const filteredStores = response.data.filter(store => {
-              return store.product.some(product => product.productId === productId);
-            });
+      getStoreByProductId(productId) {
+          this.storeService.getAll()
+              .then(response => {
+                  const filteredStores = response.data.filter(store => {
+                      return store.product.some(product => product.productId === productId);
+                  });
 
-            this.storeResults = filteredStores;
-          })
-          .catch(error => {
-            console.log(error);
-          });
-    }
+                  this.storeResults = filteredStores;
+              })
+              .catch(error => {
+                  console.log(error);
+              });
+      }
   }
 }
 

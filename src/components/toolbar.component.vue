@@ -32,8 +32,9 @@ export default {
             items: [
                 { label: "Recipes", to: "recipes" },
                 { label: "Pantry", to: "pantry" },
-                { label: "Market", to: "market" },
-                { label: "Settings", to: "settings" }
+                { label: "Market", to: "search-ingredient" },
+                { label: "Settings", to: "beginner-profile" },
+                {label:"Home", to: "join-up"}
             ],
         };
     },
@@ -48,6 +49,8 @@ export default {
                     return "pi pi-shopping-cart";
                 case "Settings":
                     return "pi pi-user-edit";
+                case "Home":
+                    return "pi pi-home";
                 default:
                     return "";
             }

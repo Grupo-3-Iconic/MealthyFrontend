@@ -1,4 +1,5 @@
 <template>
+  <ToolbarComponent/>
   <div class="supply-table  p-d-flex">
     <!--Toolbar de edicion-->
     <div class="supplies-toolbar p-d-flex p-ai-center">
@@ -180,10 +181,14 @@
 
 <script>
 import { FilterMatchMode } from "primevue/api";
-import { SupplyApiService } from "../services/supply-api.service";
+import { SupplyApiService } from "@/services/supply-api.service";
+import ToolbarComponent from "@/components/toolbar.component.vue";
+
+
 
 export default {
   name: 'SupplyComponent',
+    components: {ToolbarComponent},
   data() {
     return {
       supply: {
@@ -199,7 +204,7 @@ export default {
       supplyDialog: false,
       deleteSupplyDialog: false,
       deleteSuppliesDialog: false,
-      supply: {},
+      //supply: {},
       selectedSupplies: [], 
       submitted: false,
       supplyService: new SupplyApiService(),

@@ -31,7 +31,7 @@ export default {
             drawer: false,
             items: [
                 { label: "Products", to: "products" },
-                { label: "Settings", to: "settings" },
+                { label: "Settings", to: "owner-profile" },
                 { label: "Home", to: "join-up" }
             ],
         };
@@ -43,6 +43,8 @@ export default {
                     return "pi pi-book";
                 case "Settings":
                     return "pi pi-user-edit";
+                case "Home":
+                    return "pi pi-home";
                 default:
                     return "";
             }

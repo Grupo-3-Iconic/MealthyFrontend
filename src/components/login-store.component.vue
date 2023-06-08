@@ -16,42 +16,6 @@
                             <input id="lastname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full"  placeholder="LastName">
                         </div>
                     </div>
-                    <div class="formgrid grid">
-                        <div class="field col">
-                            <label for="firstname2">Store's Name</label>
-                            <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="ej. My Store">
-                        </div>
-                        <div class="field col">
-                            <label for="lastname2">RUC</label>
-                            <input id="lastname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="ej. 65543987631">
-                        </div>
-                    </div>
-
-
-                    <div class="form grid grid">
-                        <div class="field col">
-                            <label for="firstname2">Email</label>
-                            <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="example@gmail.com">
-                        </div>
-                        <div class="field col">
-                            <label for="lastname2">Phone</label>
-                            <input id="lastname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="+51">
-                        </div>
-                    </div>
-                    <div class="formgrid grid border-orange-400">
-                        <div class="field col border-orange-400">
-                            <label for="firstname2">Password</label>
-                            <input type="password" v-model="password1" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="Password"/>
-                            <i class="fa fa-eye" v-show="!showPassword" @click="showPassword = true"></i>
-                            <i class="fa fa-eye-slash" v-show="showPassword" @click="showPassword = false"></i>
-                        </div>
-                        <div class="field col">
-                            <label for="firstname2">Repeat Password</label>
-                            <input type="password" v-model="password2" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="Repeat password"/>
-                            <i class="fa fa-eye" v-show="!showPassword" @click="showPassword = true"></i>
-                            <i class="fa fa-eye-slash" v-show="showPassword" @click="showPassword = false"></i>
-                        </div>
-                    </div>
                     <div class="formgrid grid border-orange-400">
                         <div class="field col">
                             <router-link to="/mealthy/products">

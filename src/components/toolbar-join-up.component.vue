@@ -30,9 +30,10 @@ export default {
         return {
             drawer: false,
             items: [
-                { label: "Home", to: "join-up" },
-                { label: "Register", to: "join-up" },
-                { label: "Login", to: "login-beginner" },
+                { label: "Home", to: "home},
+                {label: "Register",to:"join-up",
+                { label: "Login", to: "login" },
+
             ],
         };
     },

@@ -1,54 +1,57 @@
 <template>
   <ToolbarJoinUp/>
-    <img class="img-fluid" src="../assets/home-image.jpg"/>
-    <div class="text-center1">
-
-      <p class="text-centered1" style="font-size:70px">Bienvenido a Mealthy</p>
-      <p class="text-centered ">¡Descubre cómo alimentarse saludablemente puede ser rápido y delicioso con nuestras recestas saludables</p>
+  <div class="card-home">
+    <pv-card class="custom-card">
+    <template #title>
+      <h1>
+        Bienvenido a Mealthy
+      </h1>
+    </template>
+    <template #content>
+      <p style="font-size: 20px;">¡Descubre cómo alimentarse saludablemente puede ser rápido y <br/>
+        delicioso con nuestras recetas saludables!</p>
+    </template>
+    <template #footer>
       <router-link to="/mealthy/login">
-        <pv-button class="text-white absolute md justify-content-center" style="top:65%;right:42%; width:200px; ">Unete </pv-button>
+        <pv-button color="primary">
+          <b>UNETE</b>
+        </pv-button>
       </router-link>
-    </div>
-     <p class="final-text absolute ">Mealthy 2023 | Todos los derechos reservados</p>
-
+    </template>
+  </pv-card>
+  </div>
+  <pv-toolbar>
+    <template #center>
+      <p>
+        Mealthy 2023 | Todos los derechos reservados
+      </p>
+    </template>
+  </pv-toolbar>
 </template>
-
 <script>
-
 import ToolbarJoinUp from "@/components/toolbar-join-up.component.vue";
+
 export default {
   name: "home.component.vue",
-  components: {ToolbarJoinUp}
+  components: { ToolbarJoinUp }
 }
 </script>
-
-<style >
-.text-center1{
-  padding-left:5.0rem;
-  padding-right:5.0rem;
+<style scoped>
+.card-home {
+  background-image: url('https://media.gq.com.mx/photos/5f317fa2356b187cffb8431b/16:9/w_2560%2Cc_limit/comida%2520saludable.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 2px;
 }
-.text-centered1{
-  transform: translate(-50%, -50%);
-  position:absolute;
-  top:30%;
-  left:50%;
-
-}
-.text-centered{
-  transform: translate(-50%, -50%);
-  position:absolute;
-  font-size: 40px;
+.custom-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
-  width:1000px;
-  top:50%;
-  left:50%;
-}
-.final-text{
-  top:90%;
-}
-.img-fluid{
-  width: 100%;
-  height: 85vh;
 }
 
 </style>

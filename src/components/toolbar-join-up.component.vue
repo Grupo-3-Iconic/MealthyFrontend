@@ -1,4 +1,3 @@
-
 <template>
     <pv-toast/>
     <header>
@@ -30,10 +29,9 @@ export default {
         return {
             drawer: false,
             items: [
-                { label: "Home", to: "home},
-                {label: "Register",to:"join-up",
+                { label: "Home", to: "home"},
+                { label: "Register", to: "join-up" },
                 { label: "Login", to: "login" },
-
             ],
         };
     },

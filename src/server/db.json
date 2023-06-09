@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "manzana",
-      "category": "Fruta",
-      "price": 6.5,
-      "unit": "kilogramo",
-      "quantity": 7,
-      "photoUrl": "https://i0.wp.com/historiasdelahistoria.com/wordpress-2.3.1-ES-0.1-FULL/wp-content/uploads/2015/09/manzana.jpg?ssl=1"
-    },
-    {
       "id": 2,
       "name": "pera",
       "category": "Fruta",

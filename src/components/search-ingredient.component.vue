@@ -20,7 +20,8 @@
             <p class="store-description">{{storeResult.description}}</p>
           </div>
           <div>
-            <button class="ver-button">Ver</button>
+              <pv-button @click="viewStore(storeResult.id)"> Ver</pv-button>
+           
           </div>
         </div>
       </Card>
@@ -72,6 +73,9 @@ export default{
               .catch(error => {
                   console.log(error);
               });
+      },
+      viewStore(id){
+        this.$router.push({name:'market-products', params:{ id } });
       }
   }
 }

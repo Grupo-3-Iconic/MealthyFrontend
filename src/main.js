@@ -17,6 +17,7 @@ import './assets/mealthy-theme.css';
 import "primevue/resources/primevue.min.css";
 
 // PrimeVue Components
+import SelectButton from 'primevue/selectbutton';
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Toolbar from "primevue/toolbar";
@@ -43,6 +44,7 @@ app.use(ToastService);
 
 // PrimeVue Configuration
 app.use(PrimeVue, { ripple: true });
+app.component("pv-selectbutton",SelectButton);
 app.component("pv-data-table", DataTable);
 app.component("pv-column", Column);
 app.component("pv-toolbar", Toolbar);

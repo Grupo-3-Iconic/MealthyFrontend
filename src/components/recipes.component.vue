@@ -58,7 +58,6 @@ export default {
     getRecipes() {
       this.recipeService.getAll()
         .then(response => {
-          this.recipes = response.data;
           this.filteredRecipes = response.data;
         })
         .catch(error => {

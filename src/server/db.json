@@ -143,12 +143,6 @@
   ],
   "supplies": [
     {
-      "id": 1,
-      "name": "Arroz",
-      "unit": "kilogramo",
-      "quantity": "2"
-    },
-    {
       "id": 2,
       "name": "Lentejas",
       "unit": "kilogramo",

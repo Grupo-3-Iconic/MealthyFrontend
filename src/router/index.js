@@ -10,6 +10,7 @@ const router = createRouter({
         {path: '/mealthy/search-ingredient', name: 'search-ingredient', component: () => import('../components/search-ingredient.component.vue') },
         { path: '/mealthy/login-beginner', name: 'login-beginner', component: () => import('../components/login-beginner.component.vue') },
         { path: '/mealthy/login-store', name: 'login-store', component: () => import('../components/login-store.component.vue') },
+        {path:'/mealthy/market-products/:id',name:'market-products',component:()=>import('../components/market.component.vue')},
 
         {path:'/mealthy/login',name:'login',component:()=>import('../components/login.component.vue')},
         {path:'/mealthy/home',name:'home',component:()=>import('../components/home.component.vue')},

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import {ProductsApiService} from "@/services/products-api.service";
+import {ProductApiService} from "@/services/product-api.service";
 import {StoreApiService} from "@/services/store-api.service";
 import ToolbarComponent from "@/components/toolbar.component.vue";
 export default{
@@ -40,7 +40,7 @@ export default{
       searchTerm:'',
       product: null,
       storeResults:[],
-      productService: new ProductsApiService(),
+      productService: new ProductApiService(),
       storeService: new StoreApiService()
     };
   },

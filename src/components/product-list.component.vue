@@ -238,7 +238,7 @@
 
 <script>
 import { FilterMatchMode } from "primevue/api";
-import {ProductsApiService} from "@/services/products-api.service";
+import {ProductApiService} from "@/services/product-api.service";
 import ToolbarStoreComponent from "@/components/toolbar-store.component.vue";
 
 
@@ -261,7 +261,7 @@ export default {
             product: {},
             selectedProducts: [],
             submitted: false,
-            productService: new ProductsApiService(),
+            productService: new ProductApiService(),
         };
     },
     created() {
@@ -292,7 +292,7 @@ export default {
         },
         findIndexById(id) {
             console.log(`current id: ${id}`);
-            return this.products.findIndex((supply) => supply.id === id);
+            return this.products.findIndex((product) => product.id === id);
         },
         saveProduct() {
             this.submitted = true;

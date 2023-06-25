@@ -32,7 +32,7 @@ export default {
             items: [
                 { label: "Recipes", to: "recipes" },
                 { label: "Pantry", to: "pantry" },
-                { label: "Market", to: "search-ingredient" },
+                { label: "Market", to: "market" },
                 { label: "Settings", to: "beginner-profile" },
                 {label:"Home", to: "join-up"}
             ],

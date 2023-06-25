@@ -4,7 +4,7 @@
 
 <img src="../assets/healthy-foods.png" class="p-6" style="width: 50%;height: 80vh;">
 <div class="container">
-        <div class="card border-orange-400 border-solid" style="height:9000">
+        <div class="card border-orange-400 border-solid" style="height:900px;">
             <pv-card>
                 <template #title>Log in</template>
                 <template #content>

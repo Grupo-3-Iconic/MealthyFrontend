@@ -32,6 +32,8 @@ export default {
             items: [
                 { label: "Products", to: "products" },
                 { label: "Settings", to: "owner-profile" },
+                { label: "Market", to: "market" },
+                { label: "Prueba", to: "prueba" },
                 { label: "Home", to: "join-up" }
             ],
         };

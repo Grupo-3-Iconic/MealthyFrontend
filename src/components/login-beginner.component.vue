@@ -1,83 +1,128 @@
 <template>
     <ToolbarJoinUpComponent/>
-        <div class="container">
-            <div class="card">
-                <pv-card>
-                    <template #title>Create your culinary beginner account</template>
-                    <template #content>
-
-                        <div class="formgrid grid">
-                            <div class="field col">
-                                <label for="firstname2">Firstname</label>
-                                <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full"  placeholder="Firstname">
-                            </div>
-                            <div class="field col">
-                                <label for="lastname2">Lastname</label>
-                                <input id="lastname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full"  placeholder="LastName">
-                            </div>
-                        </div>
-                        <div class="formgrid grid">
-                            <div class="field col">
-                                <label for="firstname2">Genre</label>
-                                <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="ej. female">
-                            </div>
-                            <div class="field col">
-                                <label for="lastname2">Birthday</label>
-                                <input id="lastname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="dd/mm/yy">
-                            </div>
-                        </div>
-
+    <div class="container">
+        <div class="card">
+            <pv-card>
+                <template #title>Create your culinary beginner account</template>
+                <template #content>
+                    <form class="form">
 
                         <div class="form grid grid">
                             <div class="field col">
-                                <label for="firstname2">Email</label>
-                                <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="example@gmail.com">
-                            </div>
-                            <div class="field col">
-                                <label for="lastname2">Phone</label>
-                                <input id="lastname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="+51">
-                            </div>
-                        </div>
-                        <div class="formgrid grid border-orange-400">
-                            <div class="field col border-orange-400">
-                                <label for="firstname2">Password</label>
-                                <input type="password" v-model="password1" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="Password"/>
-                                <i class="fa fa-eye" v-show="!showPassword" @click="showPassword = true"></i>
-                                <i class="fa fa-eye-slash" v-show="showPassword" @click="showPassword = false"></i>
-                            </div>
-                            <div class="field col">
-                                <label for="firstname2">Repeat Password</label>
-                                <input type="password" v-model="password2" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="Repeat password"/>
-                                <i class="fa fa-eye" v-show="!showPassword" @click="showPassword = true"></i>
-                                <i class="fa fa-eye-slash" v-show="showPassword" @click="showPassword = false"></i>
+
+                        <div class="form-group-inline">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="firstName" v-model="firstName" required/>
                             </div>
                         </div>
 
-                        <div class="formgrid grid border-orange-400">
-                            <div class="field col">
-                                <router-link to="/mealthy/recipes">
-                                <pv-button type="button" class="text-white text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">Submit</pv-button>
-                                </router-link>
                             </div>
+
+                            <div class="field col">
+
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="lastName" v-model="lastName" required/>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form grid grid">
+                            <div class="field col">
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="genre">Genre</label>
+                                    <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="genre" v-model="genre" required/>
+                                </div>
+                            </div>
+                                </div>
+
+                            <div class="field col">
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="birthday">Birthday</label>
+                                    <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="birthday" v-model="birthday" required/>
+                                </div>
+                            </div>
+                                </div>
+                        </div>
+
+                        <div class="form grid grid">
+                            <div class="field col">
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="email" v-model="email" required/>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="field col">
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="phone" v-model="phone" required/>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="form grid grid">
+                            <div class="field col">
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="border-orange-400 border-solid p-3 border-round w-full" id="password" v-model="password" required/>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="field col">
+                            <div class="form-group-inline">
+                                <div class="form-group">
+                                    <label for="repeatPassword">Repeat Password</label>
+                                    <input type="password" class="border-orange-400 border-solid p-3 border-round w-full" id="repeatPassword" v-model="repeatPassword" required/>
+                                    <p v-if="passwordMismatch" class="error-message">Passwords do not match.</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="form grid grid border-orange-400">
+                            <div class="field col">
+                            <router-link to="/mealthy/join-up">
+                        <pv-button @click="submitForm" ::disabled="isFormEmpty || passwordMismatch">Submit</pv-button>
+                            </router-link>
+                            </div>
+
                             <div class="field col">
                                 <router-link to="/mealthy/join-up">
-                                <pv-button type="button" class="text-white text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">Cancel</pv-button>
+                                    <pv-button type="button" class="text-white text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">Cancel</pv-button>
                                 </router-link>
                             </div>
                         </div>
 
-                          <template>
-                        </template>
-                    </template>
-                </pv-card>
-            </div>
+                    </form>
+
+                </template>
+
+            </pv-card>
         </div>
+
+
+    </div>
+
 </template>
 
 
 
 <script>
 import ToolbarJoinUpComponent from "@/components/toolbar-join-up.component.vue";
+import {UserApiService} from "@/services/user-api.service";
 
 
 export default {
@@ -86,11 +131,64 @@ export default {
 
     data() {
         return {
-            password1: '',
-            password2:'',
-            showPassword: false
-        }
-    }
+            firstName: '',
+            lastName: '',
+            genre:'',
+            birthday:'',
+            email: '',
+            phone:'',
+            password: '',
+            repeatPassword: '',
+            userApiService:new UserApiService(),
+        };
+    },
+
+    computed:{
+        isFormEmpty(){
+            return(
+                this.firstName===''||
+                this.lastName===''||
+                this.genre===''||
+                this.birthday===''||
+                this.email===''||
+                this.phone===''||
+                this.password===''||
+                this.repeatPassword===''
+            );
+        },
+        passwordMismatch() {
+            return this.password !== this.repeatPassword;
+        },
+    },
+
+    methods: {
+        submitForm() {
+            if (!this.isFormEmpty && !this.passwordMismatch) {
+                this.signUp();
+            }
+        },
+        async signUp() {
+            const userdata = {
+                firstName: this.firstName,
+                lastName: this.lastName,
+                genre: this.genre,
+                birthday: this.birthday,
+                email: this.email,
+                phone: this.phone,
+                password: this.password,
+                rol:1,
+                repeatPassword: this.repeatPassword,
+            };
+            try {
+                const response=await this.userApiService.create(userdata);
+                console.log("Success:", response.data);
+            } catch (error) {
+                console.error('Error registering beginner:', error);
+            }
+        },
+    },
+
+
 
 }
 
@@ -105,6 +203,14 @@ export default {
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+
 }
 
 

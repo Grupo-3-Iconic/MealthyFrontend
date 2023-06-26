@@ -60,6 +60,7 @@ export default {
         .then(response => {
           this.recipes = response.data;
           this.filteredRecipes = response.data;
+          console.log(response.data)
         })
         .catch(error => {
           console.error('Error fetching recipes:', error);

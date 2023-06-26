@@ -1,7 +1,7 @@
 import HttpCommon from "@/core/http-common";
 import http from "@/core/http-common";
 
-export class UsersApiService{
+export class UserApiService {
     getAll() {
         return http.get('/users');
     }

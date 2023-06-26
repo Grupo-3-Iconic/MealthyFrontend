@@ -1,5 +1,7 @@
+
 <script setup>
-import ToolbarComponent from './components/toolbar.component.vue';
+import SideMenu from "./components/side-menu.component.vue";
+import searchIngredientComponent from "./components/search-ingredient.component.vue";
 </script>
 
 <template>

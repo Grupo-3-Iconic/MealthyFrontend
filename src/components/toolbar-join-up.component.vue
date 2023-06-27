@@ -31,7 +31,7 @@ export default {
             items: [
                 { label: "Home", to: "home"},
                 { label: "Register", to: "join-up" },
-                { label: "Login", to: "login" },
+                { label: "Login", to: "login-up" },
             ],
         };
     },

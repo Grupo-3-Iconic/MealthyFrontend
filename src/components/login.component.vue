@@ -4,30 +4,30 @@
 
 <img src="../assets/healthy-foods.png" class="p-6" style="width: 50%;height: 80vh;">
 <div class="container">
-        <div class="card border-orange-400 border-solid" style="height:9000">
+        <div class="card border-orange-400 border-solid" >
             <pv-card>
+
+              <join />
                 <template #title>Log in</template>
                 <template #content>
-
                     <div class="formgrid grid">
                         <div class="field col">
-                            <label for="firstname2">Email</label>
-                            <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full"  placeholder="Email">
+                            <label for="Email">Username</label>
+                            <input id="Email"  type="text" v-model="username" required class="border-orange-400 border-solid p-3 border-round w-full"  placeholder="Username">
                         </div>
                     </div>
                     <div class="formgrid grid">
                         <div class="field col">
-                            <label for="firstname2">Password</label>
-                            <input id="firstname2" type="text" class="border-orange-400 border-solid p-3 border-round w-full" placeholder="Password">
+                            <label for="Password">Password</label>
+                            <input id="Password" type="text"  v-model="password" required class="border-orange-400 border-solid p-3 border-round w-full" placeholder="Password">
                         </div>
                     </div>
 
                     <div class="formgrid grid border-orange-400">
                         
                         <div class="field  col flex justify-content-center">
-                            <router-link to="/mealthy/join-up" >
-                            <pv-button type="button" class="text-white text-base border-1 border-solid  border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">Login</pv-button>
-                            </router-link>
+                            <pv-button @click.prevent="submitForm()" type="button" class=" btn-login text-white text-base border-1 border-solid  border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700">Login</pv-button>
+
                         </div>
 
 
@@ -39,11 +39,54 @@
 </template>
 
 <script>
-
+import {AuthUserService} from "../services/AuthUser.service";
 import ToolbarJoinUp from "@/components/toolbar-join-up.component.vue";
 export default {
   name: "login.component.vue",
-  components: {ToolbarJoinUp}
+  components: {ToolbarJoinUp,
+  },
+  data(){
+    return{
+      role:null,
+      username:"",
+      password:"",
+      user:[],
+      authService: new AuthUserService(),
+      responseData:[],
+    };
+  },
+  methods:{
+    submitForm(){
+      this.login();
+    },
+    login(){
+      this.role=localStorage.getItem('role');
+      this.authService.getUser(this.username,this.password,this.role)
+          .then(user=>{
+            if (user){
+              this.user=user;
+              console.log(this.user)
+              console.log('Inicio de sesion exitoso');
+              if(this.role=='1'){
+                this.$router.push('/mealthy/products');
+              }
+              else{
+                this.$router.push('/mealthy/recipes');
+
+              }
+
+            }
+            else{
+              console.error('Credenciales invalidas');
+
+            }
+          })
+    }
+
+
+
+  },
+
 }
 </script>
 

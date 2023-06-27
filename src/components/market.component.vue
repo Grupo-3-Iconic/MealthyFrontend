@@ -14,14 +14,18 @@
         <li><pv-button > Bebidas</pv-button></li>
       </ul>
     </div>
-
         </template>
       </pv-toolbar>
     </div>
 
+    <pv-divider/>
     <div class="card flex">
       <div>
-        <p> {{ store.name}}</p>
+        <img :src="store.photoUrl" alt="store-image" class="  store-image">
+      </div>
+      <pv-divider layout="vertical" style="padding-left:50px;"/>
+      <div v-for="product in products">
+ 
       </div>
 
     </div>
@@ -66,11 +70,16 @@ export default {
 </script>
   
 <style >
+.store-image{
+  height: 500px;
+  padding-left: 40px;
+  width: 550px;
+  display: flex;
+}
 ul{
   display: flex;
 
 }
-
 .nav-market li{
   list-style: none;
   margin-right: 40px;

@@ -59,6 +59,7 @@ export default {
       this.recipeService.getAll()
         .then(response => {
           this.filteredRecipes = response.data;
+          console.log(response.data)
         })
         .catch(error => {
           console.error('Error fetching recipes:', error);

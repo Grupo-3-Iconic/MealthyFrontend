@@ -1,88 +1,116 @@
 <template>
-    <ToolbarComponent/>
-    <div class="market-toolbar">
+  <ToolbarComponent/>
+  <div>
+    <div class="markets-toolbar">
       <pv-toolbar style="max-height: 80px;">
         <template #start>
-          <h1>{{store.name}}</h1>
+          <h1>Markets</h1>
         </template>
         <template #end>
-          <div class=" flex col-12 text-center  nav-market">
-      <ul>
-        <li><pv-button >Verduras</pv-button></li>
-        <li><pv-button>Abarrotes </pv-button> </li>
-        <li><pv-button>Frutas</pv-button></li>
-        <li><pv-button > Bebidas</pv-button></li>
-      </ul>
-    </div>
+                <span class="p-input-icon-left">
+                  <i class="pi pi-search" />
+                  <pv-input-text v-model="productName" placeholder="Buscar" @input="searchStoreId" />
+                </span>
         </template>
       </pv-toolbar>
+      <pv-divider />
     </div>
-
-    <pv-divider/>
-    <div class="card flex">
-      <div>
-        <img :src="store.photoUrl" alt="store-image" class="  store-image">
+    <div class="row">
+      <div v-for="market in markets" :key="market.id" class="col">
+        <pv-card>
+          <template #header>
+            <img :src="market.photo" alt="Market Photo" class="market-image">
+          </template>
+          <template #title>{{ market.storeName }}</template>
+          <template #content>
+            <p>{{ market.description }}</p>
+            <pv-button @click="viewMarket(market.id)">Ver más</pv-button>
+          </template>
+        </pv-card>
       </div>
-      <pv-divider layout="vertical" style="padding-left:50px;"/>
-      <div v-for="product in products">
- 
-      </div>
-
     </div>
+  </div>
+</template>
 
-
-  </template>
-  
 <script>
-
-import {ProductsApiService} from "@/services/products-api.service";
-import {StoreApiService} from '@/services/store-api.service.js';
 import ToolbarComponent from "@/components/toolbar.component.vue";
+import {MarketApiService} from "@/services/market-api.service";
+import {ProductApiService} from "@/services/product-api.service";
+
 export default {
-  name: 'MarketComponent',
+  name: "market.component.vue",
   components: {ToolbarComponent},
-  data(){
-    return{
-      store:null,
-      products:[],
-      productService: new ProductsApiService(),
-      storeService: new StoreApiService(), 
 
+  data() {
+    return {
+      productName: '',
+      markets: []
     };
+  },
+  created() {
+    this.productApiService = new ProductApiService();
+    this.marketApiService = new MarketApiService();
+  },
+  methods: {
+    searchStoreId(){
+      this.productApiService.findByName(this.productName)
+          .then(response => {
+            const products = response.data;
+            const product = products.find(product => product.name === this.productName);
 
-  },
-  created(){
-    this.getStore();
-  },
-  methods:{
-    getStore(){
-      const storeId =this.$route.params.id;
-      this.storeService.getById(storeId)
-        .then(response=>{
-          this.store = response.data;
-       })
-       .catch(error=>{
-         console.error('Error fetching store: ', error);
-       })
-    }
-  },
-}                     
+            if(product){
+              const storeId = product.storeId;
+              this.searchMarkets(storeId);
+            }else {
+              this.markets=[];
+            }
+          })
+          .catch(error=>{
+            console.error(error);
+            this.markets=[];
+          });
+    },
+    searchMarkets(storeId){
+      this.marketApiService.getAll()
+          .then(response=>{
+            const markets = response.data;
+            this.markets = markets.filter(market=>market.id === storeId);
+          })
+          .catch(error=>{
+            console.error(error);
+            this.markets=[];
+          });
+    },
+    viewMarket(id) {
+      this.$router.push({ name: 'see-market', params: { id } });
+    },
+  }
+}
 </script>
-  
-<style >
-.store-image{
-  height: 500px;
-  padding-left: 40px;
-  width: 550px;
-  display: flex;
-}
-ul{
-  display: flex;
 
+<style scoped>
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-items: center;
 }
-.nav-market li{
-  list-style: none;
-  margin-right: 40px;
-
+.col {
+  width: 100%;
+}
+.market-image {
+  width: 27vw;
+  height: 18vw;
+  margin: 15px;
+}
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

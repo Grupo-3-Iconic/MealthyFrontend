@@ -68,7 +68,7 @@ export default {
               this.user=user;
               console.log(this.user)
               console.log('Inicio de sesion exitoso');
-              if(this.role=='1'){
+              if(this.role==='1'){
                 this.$router.push('/mealthy/products');
               }
               else{

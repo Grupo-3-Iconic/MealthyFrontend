@@ -240,6 +240,7 @@
 import { FilterMatchMode } from "primevue/api";
 import {ProductApiService} from "@/services/product-api.service";
 import ToolbarStoreComponent from "@/components/toolbar-store.component.vue";
+import {UserApiService} from "../services/user-api.service";
 
 
 export default {
@@ -259,14 +260,17 @@ export default {
             deleteProductDialog: false,
             deleteProductsDialog: false,
             product: {},
+            user:{},
             selectedProducts: [],
             submitted: false,
             productService: new ProductApiService(),
+            userService: new UserApiService(),
+            storeId:null,
         };
     },
     created() {
+        this.getUserAndProducts();
         this.initFilters();
-        this.loadProducts();
     },
     methods: {
         initFilters() {
@@ -274,13 +278,25 @@ export default {
                 global: { value: null, matchMode: FilterMatchMode.CONTAINS },
             };
         },
-        loadProducts() {
-            this.productService.getAll().then(response => {
-                this.products = response.data;
-            }).catch(error => {
-                console.log(error);
-            });
-        },
+         async getUserAndProducts(){
+          const userId =  localStorage.getItem('userId');
+          try{
+            const response= await this.userService.getById(userId);
+            this.user=response.data;
+          }
+          catch (error){
+            console.error(error);
+          }
+          console.log(this.user.username);
+          try{
+            const response = await this.productService.getByStoreId(this.user.storeId);
+            this.products = response.data;
+          }
+          catch (error){
+            console.error(error);
+          }
+          console.log(this.products);
+          },
         openNew() {
             this.product = {};
             this.submitted = false;

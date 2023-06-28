@@ -176,7 +176,7 @@ export default {
                 email: this.email,
                 phone: this.phone,
                 password: this.password,
-                rol:1,
+                rol:2,
                 repeatPassword: this.repeatPassword,
             };
             try {

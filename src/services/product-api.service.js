@@ -5,8 +5,11 @@ export class ProductApiService {
         return http.get('/products');
     }
 
-    getById(id) {
+    getById(id){
         return http.get(`/products/${id}`);
+    }
+    getByStoreId(id) {
+        return http.get(`/products?storeId=${id}`);
     }
     create(data) {
         return http.post('/products', data);

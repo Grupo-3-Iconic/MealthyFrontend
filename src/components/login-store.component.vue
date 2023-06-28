@@ -221,7 +221,7 @@ export default {
                 description: this.description,
                 email: this.email,
                 phone: this.phone,
-                rol:2,
+                rol:1,
                 password: this.password,
                 repeatPassword: this.repeatPassword,
             };

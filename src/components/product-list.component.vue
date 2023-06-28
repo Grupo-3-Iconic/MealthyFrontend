@@ -287,7 +287,6 @@ export default {
           catch (error){
             console.error(error);
           }
-          console.log(this.user.username);
           try{
             const response = await this.productService.getByStoreId(this.user.storeId);
             this.products = response.data;
@@ -295,7 +294,6 @@ export default {
           catch (error){
             console.error(error);
           }
-          console.log(this.products);
           },
         openNew() {
             this.product = {};
@@ -312,6 +310,7 @@ export default {
         },
         saveProduct() {
             this.submitted = true;
+            this.product.storeId=this.user.storeId;
             if (this.product.name.trim() && this.product.category.trim() && this.product.price.trim() && this.product.unit.trim() && this.product.quantity.trim() && this.product.photoUrl.trim()) {
                 if (this.product.id) {
                     console.log(this.product);

@@ -7,6 +7,7 @@
                 <template #content>
                     <form class="form">
 
+
                         <div class="form grid grid">
                             <div class="field col">
 
@@ -18,7 +19,16 @@
                                 </div>
 
                             </div>
+                          <div class="field col">
 
+                            <div class="form-group-inline">
+                              <div class="form-group">
+                                <label for="lastName">Username</label>
+                                <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="lastName" v-model="username" required/>
+                              </div>
+                            </div>
+
+                          </div>
                             <div class="field col">
 
                                 <div class="form-group-inline">
@@ -129,7 +139,7 @@
 
                         <div class="form grid grid border-orange-400">
                             <div class="field col">
-                                <router-link to="/mealthy/products">
+                                <router-link to="/mealthy/login">
                                     <pv-button @click="submitForm" ::disabled="isFormEmpty || passwordMismatch">Submit</pv-button>
                                 </router-link>
                             </div>
@@ -166,6 +176,8 @@ export default {
 
     data() {
         return {
+            username:'',
+            storeId:'',
             firstName: '',
             lastName: '',
             storeName:'',
@@ -176,7 +188,6 @@ export default {
             email: '',
             phone:'',
             password: '',
-            repeatPassword: '',
             userApiService:new UserApiService(),
             marketApiService:new MarketApiService(),
         };
@@ -206,35 +217,11 @@ export default {
     methods: {
         submitForm() {
             if (!this.isFormEmpty && !this.passwordMismatch) {
-                this.signUp();
                 this.addMarket();
             }
         },
-        async signUp() {
-            const userdata = {
-                firstName: this.firstName,
-                lastName: this.lastName,
-                storeName: this.storeName,
-                ruc: this.ruc,
-                location: this.location,
-                photo: this.photo,
-                description: this.description,
-                email: this.email,
-                phone: this.phone,
-                rol:1,
-                password: this.password,
-                repeatPassword: this.repeatPassword,
-            };
-            try {
-
-                const response=await this.userApiService.create(userdata);
-                console.log("Success:", response.data);
-            } catch (error) {
-                console.error('Error registering beginner:', error);
-            }
-        },
         async addMarket() {
-            const userdata = {
+            const marketData = {
                 firstName: this.firstName,
                 lastName: this.lastName,
                 storeName: this.storeName,
@@ -249,11 +236,38 @@ export default {
             };
             try {
 
-                const response=await this.marketApiService.create(userdata);
+                const response=await this.marketApiService.create(marketData);
                 console.log("Success:", response.data);
+                this.storeId=response.data.id;
+
+
             } catch (error) {
                 console.error('Error registering beginner:', error);
             }
+          const userdata = {
+            username:this.username,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            storeName: this.storeName,
+            ruc: this.ruc,
+            location: this.location,
+            photo: this.photo,
+            description: this.description,
+            email: this.email,
+            phone: this.phone,
+            role:1,
+            storeId:this.storeId,
+            password: this.password,
+            repeatPassword: this.repeatPassword,
+          };
+          try {
+
+            const response=await this.userApiService.create(userdata);
+            console.log("Success:", response.data);
+
+          } catch (error) {
+            console.error('Error registering beginner:', error);
+          }
         },
     },
 

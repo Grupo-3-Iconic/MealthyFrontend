@@ -33,4 +33,15 @@ export class AuthUserService{
             });
     }
 
+    signUpUser(body){
+        return https.post('/Signup',body);
+    }
+    loginUser(body){
+        return https.post('/login',body);
+
+    }
+
+
+
+
 }

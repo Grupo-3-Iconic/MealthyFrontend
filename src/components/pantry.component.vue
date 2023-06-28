@@ -220,12 +220,16 @@ export default {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
       };
     },
-    loadSupplies() {
-      this.supplyService.getAll().then(response => {
-        this.supplies = response.data;
-      }).catch(error => {
+     async loadSupplies() {
+      const userId= localStorage.getItem('userId');
+      try{
+        const response = await this.supplyService.getByUserId(userId);
+        this.supplies =response.data;
+      }
+      catch (error){
         console.log(error);
-      });
+      }
+
     },
     openNew() {
       this.supply = {};

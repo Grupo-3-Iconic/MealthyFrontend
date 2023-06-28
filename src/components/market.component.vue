@@ -56,7 +56,7 @@ export default {
       this.productApiService.findByName(this.productName)
           .then(response => {
             const products = response.data;
-            const product = products.find(product => product.name === this.productName);
+            const product = products.find(product => product.name.toLowerCase().equals(this.productName.toLowerCase()));
 
             if(product){
               const storeId = product.storeId;

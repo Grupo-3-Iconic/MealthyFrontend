@@ -13,7 +13,10 @@ export class SupplyApiService {
     update(id, data) {
         return http.put(`/supplies/${id}`, data);
     }
-
+    getByUserId(id)
+    {
+        return http.get(`/supplies?userId=${id}`);
+    }
     delete(id) {
         return http.delete(`/supplies/${id}`);
     }

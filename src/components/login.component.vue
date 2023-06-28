@@ -82,6 +82,28 @@ export default {
 
             }
           })
+    },
+    async login1(){
+      const loginData={
+        username:this.username,
+        password: this.password,
+        roles: localStorage.getItem('role'),
+      }
+      try{
+        this.responseData = await this.authService.loginUser(loginData);
+        localStorage.setItem('user-id', this.responseData.data.user.id);
+        if(this.role==='1'){
+          this.$router.push('/mealthy/products');
+        }
+        else{
+          this.$router.push('/mealthy/recipes');
+
+        }
+
+      }
+      catch (error){
+        console.error('Error loggin in: ', error);
+      }
     }
 
 

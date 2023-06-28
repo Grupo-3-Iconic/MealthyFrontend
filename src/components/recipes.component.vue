@@ -68,9 +68,12 @@ export default {
     search() {
       const searchValue = this.filters['global'].value;
       this.filteredRecipes = searchValue
-        ? this.recipes.filter(recipe => recipe.title.toLowerCase().includes(searchValue.toLowerCase()) || recipe.description.toLowerCase().includes(searchValue.toLowerCase()))
+        ? this.filteredRecipes.filter(recipe =>
+            recipe.title.toLowerCase().includes(searchValue.toLowerCase())
+          )
         : this.recipes;
     },
+
     viewRecipe(id) {
       this.$router.push({ name: 'recipe-details', params: { id } });
     },

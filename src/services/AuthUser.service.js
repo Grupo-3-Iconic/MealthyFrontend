@@ -17,7 +17,6 @@ export class AuthUserService{
                     const user = response.data.find(user => user.username === username && user.password === password);
                     if (user) {
                         const userId = user.id;
-
                         localStorage.setItem('userId', userId);
 
                         return user;

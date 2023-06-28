@@ -44,12 +44,14 @@ export default {
   data() {
     return {
       productName: '',
-      markets: []
+      markets: [],
+      allMarkets:[]
     };
   },
   created() {
     this.productApiService = new ProductApiService();
     this.marketApiService = new MarketApiService();
+    this.getAllMarkets();
   },
   methods: {
     searchStoreId(){
@@ -61,8 +63,8 @@ export default {
             if(product){
               const storeId = product.storeId;
               this.searchMarkets(storeId);
-            }else {
-              this.markets=[];
+            } else {
+              this.markets=[...this.allMarkets];
             }
           })
           .catch(error=>{
@@ -71,10 +73,25 @@ export default {
           });
     },
     searchMarkets(storeId){
+      if(this.productName.trim()!== ''){
+        this.marketApiService.getAll()
+            .then(response=>{
+              const markets = response.data;
+              this.markets=markets.filter(market=>market.id ===storeId);
+            })
+            .catch(error=>{
+              console.error(error);
+              this.markets.splice(0, this.markets.length);
+            });
+      }else {
+        this.markets=[...this.allMarkets];
+      }
+    },
+    getAllMarkets(){
       this.marketApiService.getAll()
           .then(response=>{
-            const markets = response.data;
-            this.markets = markets.filter(market=>market.id === storeId);
+            this.allMarkets = response.data;
+            this.markets = [...this.allMarkets];
           })
           .catch(error=>{
             console.error(error);

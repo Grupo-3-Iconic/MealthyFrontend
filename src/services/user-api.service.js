@@ -1,8 +1,4 @@
-import HttpCommon from "@/core/http-common";
-import http from "@/core/http-common";
-import HttpCommon from "../core/http-common";
 import http from "../core/http-common";
-
 
 export class UserApiService {
     getAll() {

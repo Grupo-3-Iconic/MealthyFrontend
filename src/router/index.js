@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
-        { path: '/', redirect: '/mealthy/join-up' },
+        { path: '/', redirect: '/mealthy/home' },
         { path: '/mealthy/join-up', name: 'join-up', component: () => import('../components/join-up.component.vue') },
         { path: '/mealthy/recipes', name: 'recipes', component: () => import('../components/recipes.component.vue') },
         { path: '/mealthy/recipes/:id', name: 'recipe-details', component: () => import('../components/recipe-details.component.vue') },

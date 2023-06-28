@@ -3,7 +3,7 @@
     <header>
         <pv-toolbar class="bg-primary">
             <template #start>
-                <pv-button class="sidebar-button" @click="drawer = !drawer">
+                <pv-button>
                     <img alt="logo" src="../assets/logo.jpg" class="h-4rem"/>
                 </pv-button>
                 <h3><b>Mealthy</b></h3>

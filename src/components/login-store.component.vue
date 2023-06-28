@@ -188,6 +188,7 @@ export default {
             email: '',
             phone:'',
             password: '',
+            repeatPassword:'',
             userApiService:new UserApiService(),
             marketApiService:new MarketApiService(),
         };
@@ -222,17 +223,9 @@ export default {
         },
         async addMarket() {
             const marketData = {
-                firstName: this.firstName,
-                lastName: this.lastName,
                 storeName: this.storeName,
-                ruc: this.ruc,
-                location: this.location,
                 photo: this.photo,
                 description: this.description,
-                email: this.email,
-                phone: this.phone,
-                password: this.password,
-                repeatPassword: this.repeatPassword,
             };
             try {
 
@@ -258,7 +251,6 @@ export default {
             role:1,
             storeId:this.storeId,
             password: this.password,
-            repeatPassword: this.repeatPassword,
           };
           try {
 

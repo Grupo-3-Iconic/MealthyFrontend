@@ -12,7 +12,7 @@
         delicioso con nuestras recetas saludables!</p>
     </template>
     <template #footer>
-      <router-link to="/mealthy/login">
+      <router-link to="/mealthy/join-up">
         <pv-button color="primary">
           <b>UNETE</b>
         </pv-button>

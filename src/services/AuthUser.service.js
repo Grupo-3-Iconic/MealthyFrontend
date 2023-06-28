@@ -1,5 +1,5 @@
 import axios from 'axios';
-const https= axios.create({baseURL:"http://localhost:3000/api/v1/mealthy"})
+const https= axios.create({baseURL:"https://localhost:7205/api/v1/user"})
 
 export class AuthUserService{
     //getUser(username,password,role){
@@ -34,11 +34,13 @@ export class AuthUserService{
     }
 
     signUpUser(body){
-        return https.post('/Signup',body);
+        return https.post('/sign-up',body);
     }
     loginUser(body){
-        return https.post('/login',body);
-
+        return https.post('/sign-in',body);
+    }
+    getUserById(id){
+        return https.get(`/${id}`);
     }
 
 

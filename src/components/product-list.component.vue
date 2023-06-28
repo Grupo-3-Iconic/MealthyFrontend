@@ -241,6 +241,7 @@ import { FilterMatchMode } from "primevue/api";
 import {ProductApiService} from "@/services/product-api.service";
 import ToolbarStoreComponent from "@/components/toolbar-store.component.vue";
 import {UserApiService} from "../services/user-api.service";
+import {AuthUserService} from "../services/AuthUser.service";
 
 
 export default {
@@ -265,6 +266,7 @@ export default {
             submitted: false,
             productService: new ProductApiService(),
             userService: new UserApiService(),
+            authService:new AuthUserService(),
             storeId:null,
         };
     },
@@ -281,7 +283,7 @@ export default {
          async getUserAndProducts(){
           const userId =  localStorage.getItem('userId');
           try{
-            const response= await this.userService.getById(userId);
+            const response= await this.authService.getUserById(userId);
             this.user=response.data;
           }
           catch (error){

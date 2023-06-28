@@ -1,5 +1,5 @@
 import http from "../core/http-common";
-
+import axios from "axios";
 export class UserApiService {
     getAll() {
         return http.get('/users');
@@ -10,6 +10,9 @@ export class UserApiService {
     }
     create(data) {
         return http.post('/users', data);
+    }
+    create1(data){
+        return http.post('/sign-up',data);
     }
     update(id, data) {
         return http.put(`/users/${id}`, data);

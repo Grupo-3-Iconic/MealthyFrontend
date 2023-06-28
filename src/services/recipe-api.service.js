@@ -1,5 +1,5 @@
 import axios from 'axios';
-const http= axios.create({baseURL:"https://localhost:44327/api/v1"})
+const http= axios.create({baseURL:"https://localhost:7205/api/v1"})
 
 export class RecipeApiService {
     getAll() {

@@ -58,46 +58,24 @@ export default {
   },
   methods:{
     submitForm(){
-      this.login();
-    },
-    login(){
-      this.role=localStorage.getItem('role');
-      this.authService.getUser(this.username,this.password,this.role)
-          .then(user=>{
-            if (user){
-              this.user=user;
-              console.log(this.user)
-              console.log('Inicio de sesion exitoso');
-              if(this.role==='1'){
-                this.$router.push('/mealthy/products');
-              }
-              else{
-                this.$router.push('/mealthy/recipes');
-
-              }
-
-            }
-            else{
-              console.error('Credenciales invalidas');
-
-            }
-          })
+      this.login1();
     },
     async login1(){
       const loginData={
         username:this.username,
         password: this.password,
-        roles: localStorage.getItem('role'),
+        role: localStorage.getItem('role'),
       }
+      this.role=localStorage.getItem('role');
       try{
         this.responseData = await this.authService.loginUser(loginData);
-        localStorage.setItem('user-id', this.responseData.data.user.id);
-        if(this.role==='1'){
+        localStorage.setItem('userId',this.responseData.data.id);
+
+        if(this.responseData.data.role===this.role){
           this.$router.push('/mealthy/products');
         }
         else{
           this.$router.push('/mealthy/recipes');
-
         }
 
       }

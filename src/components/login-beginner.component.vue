@@ -133,7 +133,7 @@
 
 <script>
 import ToolbarJoinUpComponent from "@/components/toolbar-join-up.component.vue";
-import {UserApiService} from "@/services/user-api.service";
+import {AuthUserService} from "../services/AuthUser.service";
 
 
 export default {
@@ -151,7 +151,7 @@ export default {
             phone:'',
             password: '',
             repeatPassword: '',
-            userApiService:new UserApiService(),
+            authApiService:new AuthUserService(),
         };
     },
 
@@ -182,19 +182,22 @@ export default {
         },
         async signUp() {
             const userdata = {
-                username:this.username,
                 firstName: this.firstName,
                 lastName: this.lastName,
                 genre: this.genre,
                 birthday: this.birthday,
+                ruc:'',
+                storeId:0,
                 email: this.email,
                 phone: this.phone,
+                role:'2',
+                username:this.username,
                 password: this.password,
-                role:2,
+
+
             };
             try {
-                const response=await this.userApiService.create(userdata);
-                console.log("Success:", response.data);
+                await this.authApiService.signUpUser(userdata);
             } catch (error) {
                 console.error('Error registering beginner:', error);
             }

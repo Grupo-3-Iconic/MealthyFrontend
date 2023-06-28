@@ -24,7 +24,7 @@
                             <div class="form-group-inline">
                               <div class="form-group">
                                 <label for="lastName">Username</label>
-                                <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="lastName" v-model="username" required/>
+                                <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="username" v-model="username" required/>
                               </div>
                             </div>
 
@@ -166,102 +166,94 @@
 
 <script>
 import ToolbarJoinUpComponent from "@/components/toolbar-join-up.component.vue";
-import {UserApiService} from "@/services/user-api.service";
-import {MarketApiService} from "@/services/market-api.service";
+import {AuthUserService} from "../services/AuthUser.service";
+import {MarketApiService} from "../services/market-api.service";
 
 
 export default {
     name: "login-beginner.component.vue",
     components: {ToolbarJoinUpComponent},
 
-    data() {
-        return {
-            username:'',
-            storeId:'',
-            firstName: '',
-            lastName: '',
-            storeName:'',
-            ruc:'',
-            location:'',
-            photo:'',
-            description:'',
-            email: '',
-            phone:'',
-            password: '',
-            repeatPassword:'',
-            userApiService:new UserApiService(),
-            marketApiService:new MarketApiService(),
-        };
+  data() {
+    return {
+      username:'',
+      firstName: '',
+      storeName:'',
+      location:'',
+      photo:'',
+      lastName: '',
+      genre:'',
+      ruc:'',
+      description:'',
+      birthday:'',
+      email: '',
+      phone:'',
+      password: '',
+      storeId:'',
+      repeatPassword: '',
+      responseData:'',
+      authApiService:new AuthUserService(),
+      marketApiService: new MarketApiService(),
+    };
+  },
+
+  computed:{
+    isFormEmpty(){
+      return(
+          this.username===''||
+          this.firstName===''||
+          this.lastName===''||
+          this.email===''||
+          this.phone===''||
+          this.password===''||
+          this.repeatPassword===''
+      );
     },
-
-    computed:{
-        isFormEmpty(){
-            return(
-                this.firstName===''||
-                this.lastName===''||
-                this.storeName===''||
-                this.ruc===''||
-                this.location===''||
-                this.photo===''||
-                this.description===''||
-                this.email===''||
-                this.phone===''||
-                this.password===''||
-                this.repeatPassword===''
-            );
-        },
-        passwordMismatch() {
-            return this.password !== this.repeatPassword;
-        },
+    passwordMismatch() {
+      return this.password !== this.repeatPassword;
     },
+  },
 
-    methods: {
-        submitForm() {
-            if (!this.isFormEmpty && !this.passwordMismatch) {
-                this.addMarket();
-            }
-        },
-        async addMarket() {
-            const marketData = {
-                storeName: this.storeName,
-                photo: this.photo,
-                description: this.description,
-            };
-            try {
-
-                const response=await this.marketApiService.create(marketData);
-                console.log("Success:", response.data);
-                this.storeId=response.data.id;
-
-
-            } catch (error) {
-                console.error('Error registering beginner:', error);
-            }
-          const userdata = {
-            username:this.username,
-            firstName: this.firstName,
-            lastName: this.lastName,
-            storeName: this.storeName,
-            ruc: this.ruc,
-            location: this.location,
-            photo: this.photo,
-            description: this.description,
-            email: this.email,
-            phone: this.phone,
-            role:1,
-            storeId:this.storeId,
-            password: this.password,
-          };
-          try {
-
-            const response=await this.userApiService.create(userdata);
-            console.log("Success:", response.data);
-
-          } catch (error) {
-            console.error('Error registering beginner:', error);
-          }
-        },
+  methods: {
+    submitForm() {
+      if (!this.isFormEmpty && !this.passwordMismatch) {
+        this.signUp();
+      }
     },
+    async signUp() {
+      const storeData={
+        storeName:this.storeName,
+        description:this.description,
+        photo:this.photo,
+      };
+      try{
+       this.responseData = await this.marketApiService.create(storeData);
+        this.storeId= this.responseData.data.id;
+
+      }
+      catch (error){
+        console.log('se esta creando mal el market',error);
+      }
+      const userdata = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        genre: '',
+        birthday: '',
+        ruc:this.ruc,
+        storeId:this.storeId,
+        email: this.email,
+        phone: this.phone,
+        role:'1',
+        username:this.username,
+        password: this.password,
+      };
+      try {
+        await this.authApiService.signUpUser(userdata);
+      } catch (error) {
+        console.error('Error registering beginner:', error);
+      }
+    },
+  },
 
 
 }

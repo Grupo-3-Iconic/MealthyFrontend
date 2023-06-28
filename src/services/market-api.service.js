@@ -1,22 +1,26 @@
-import http from "../core/http-common";
+import axios from 'axios';
 
+const https =axios.create({
+    baseURL: 'https://localhost:7205/api/v1',
+    headers: { 'Content-type': 'application/json' }
+})
 export class MarketApiService{
     getAll() {
-        return http.get('/markets');
+        return http.get('/market');
     }
     getById(id) {
-        return http.get(`/markets/${id}`);
+        return http.get(`/market/${id}`);
     }
     create(data) {
-        return http.post('/markets', data);
+        return https.post('/market', data);
     }
     update(id, data) {
-        return http.put(`/markets/${id}`, data);
+        return http.put(`/market/${id}`, data);
     }
     delete(id) {
-        return http.delete(`/markets/${id}`);
+        return http.delete(`/market/${id}`);
     }
     findByTitle(title) {
-        return http.get(`/markets?title=${title}`);
+        return http.get(`/market?title=${title}`);
     }
 }

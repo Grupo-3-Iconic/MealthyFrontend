@@ -29,6 +29,17 @@
                             </div>
 
                             </div>
+
+                            <div class="field col">
+
+                                <div class="form-group-inline">
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="border-orange-400 border-solid p-3 border-round w-full" id="username" v-model="username" required/>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
                         <div class="form grid grid">
@@ -94,7 +105,7 @@
 
                         <div class="form grid grid border-orange-400">
                             <div class="field col">
-                            <router-link to="/mealthy/join-up">
+                            <router-link to="/mealthy/login">
                         <pv-button @click="submitForm" ::disabled="isFormEmpty || passwordMismatch">Submit</pv-button>
                             </router-link>
                             </div>
@@ -131,6 +142,7 @@ export default {
 
     data() {
         return {
+            username:'',
             firstName: '',
             lastName: '',
             genre:'',
@@ -146,6 +158,7 @@ export default {
     computed:{
         isFormEmpty(){
             return(
+                this.username===''||
                 this.firstName===''||
                 this.lastName===''||
                 this.genre===''||
@@ -169,6 +182,7 @@ export default {
         },
         async signUp() {
             const userdata = {
+                username:this.username,
                 firstName: this.firstName,
                 lastName: this.lastName,
                 genre: this.genre,
@@ -176,8 +190,7 @@ export default {
                 email: this.email,
                 phone: this.phone,
                 password: this.password,
-                rol:2,
-                repeatPassword: this.repeatPassword,
+                role:2,
             };
             try {
                 const response=await this.userApiService.create(userdata);

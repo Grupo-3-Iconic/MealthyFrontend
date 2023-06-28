@@ -1,4 +1,3 @@
-
 <template>
     <p>Settings</p>
 </template>
@@ -10,17 +9,5 @@ export default {
 </script>
   
 <style scoped>
-  
 
-<template>
-    <p>Settings</p>
-</template>
-  
-<script lang="ts">
-export default {
-    name: 'SettingsComponent'
-}  
-</script>
-  
-<style scoped>
 </style>

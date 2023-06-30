@@ -261,8 +261,8 @@ export default {
             deleteProductDialog: false,
             deleteProductsDialog: false,
             product: {},
-            user:{},
             selectedProducts: [],
+            products1:[],
             submitted: false,
             productService: new ProductApiService(),
             userService: new UserApiService(),
@@ -281,17 +281,13 @@ export default {
             };
         },
          async getUserAndProducts(){
-          const userId =  localStorage.getItem('userId');
+            const user= JSON.parse(localStorage.getItem('user'));
+            this.storeId =user.storeId;
+
           try{
-            const response= await this.authService.getUserById(userId);
-            this.user=response.data;
-          }
-          catch (error){
-            console.error(error);
-          }
-          try{
-            const response = await this.productService.getByStoreId(this.user.storeId);
-            this.products = response.data;
+            const response = await this.productService.getByStoreId(this.storeId);
+            this.products=response.data;
+
           }
           catch (error){
             console.error(error);
@@ -312,7 +308,7 @@ export default {
         },
         saveProduct() {
             this.submitted = true;
-            this.product.storeId=this.user.storeId;
+            this.product.storeId=this.storeId;
             if (this.product.name.trim() && this.product.category.trim() && this.product.price.trim() && this.product.unit.trim() && this.product.quantity.trim() && this.product.photoUrl.trim()) {
                 if (this.product.id) {
                     console.log(this.product);

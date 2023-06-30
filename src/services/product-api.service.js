@@ -5,17 +5,17 @@ export class ProductApiService {
         return http.get('/products');
     }
 
-    getById(id){
-        return http.get(`/products/${id}`);
+    getByStoreId(id){
+        return http.get(`/product/store/${id}`);
     }
-    getByStoreId(id) {
-        return http.get(`/products?storeId=${id}`);
+    getById(id){
+        return http.get(`/product/${id}`);
     }
     create(data) {
-        return http.post('/products', data);
+        return http.post('/product', data);
     }
     update(id, data) {
-        return http.put(`/products/${id}`, data);
+        return http.put(`/product/${id}`, data);
     }
 
     delete(id) {

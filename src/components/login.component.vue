@@ -69,9 +69,9 @@ export default {
       this.role=localStorage.getItem('role');
       try{
         this.responseData = await this.authService.loginUser(loginData);
-        localStorage.setItem('userId',this.responseData.data.id);
+        localStorage.setItem('user',JSON.stringify(this.responseData.data));
+        if(this.responseData.data.role==="1"){
 
-        if(this.responseData.data.role===this.role){
           this.$router.push('/mealthy/products');
         }
         else{

@@ -43,7 +43,4 @@ export class AuthUserService{
         return https.get(`/${id}`);
     }
 
-
-
-
 }
